@@ -1,0 +1,20 @@
+"""A union of all possible payment method details. PaymentMethodDetails contain information for display purposes, payment method management, and processing."""
+union PaymentMethodDetails = CustomActionsPaymentMethodDetails | CreditCardDetails | PayPalAccountDetails | SamsungPayCardDetails | VenmoAccountDetails | UsBankAccountDetails
+
+"""A union of all possible payment method origin details. PaymentMethodOriginDetails contain additional information specific to the third party the payment method was provided by."""
+union PaymentMethodOriginDetails = ApplePayOriginDetails | GooglePayOriginDetails | MasterpassOriginDetails | NetworkTokenOriginDetails | SamsungPayOriginDetails | VisaCheckoutOriginDetails
+
+"""A union of all possible payment method details as they were used in a transaction or verification. PaymentMethodSnapshot preserves values used to create a given transaction or verify a payment method at that moment in time."""
+union PaymentMethodSnapshot = CustomActionsPaymentMethodDetails | CreditCardDetails | PayPalTransactionDetails | VenmoAccountDetails | UsBankAccountDetails
+
+"""A union of all possible results of a transaction reversal. If the transaction is settled, a refund will be issued and a Refund object will be returned. Otherwise, the transaction will be voided and a Transaction object will be returned."""
+union TransactionReversal = Refund | Transaction
+
+"""A union of all possible payment method refund details."""
+union RefundPaymentMethodDetails = PayPalRefundDetails
+
+"""A union of all possible relationships of transactions involved in partial captures. If the transaction has been partially captured, this links to all its partial capture children; if the transaction represents a partial capture attempt, this links to the original parent authorization."""
+union PartialCaptureDetails = ChildCapture | ParentAuthorization
+
+"""A union of all possible verification details specific to the type of payment method being verified."""
+union VerificationDetails = UsBankAccountVerificationDetails | CreditCardVerificationDetails
