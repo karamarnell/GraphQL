@@ -81,7 +81,7 @@ type Merchant {
 
 """Top-level fields returned when creating a client token."""
 type CreateClientTokenPayload {
-  """An identifier used to reconcile requests and responses."""
+  """An identifier used to reconcile requests and responses. Making an edit here."""
   clientMutationId: String
 
   """A Base64 encoded string used to initialize client SDKs."""
@@ -157,7 +157,7 @@ type Report {
   transactionLevelFees(date: Date!, merchantAccountId: ID): TransactionLevelFeeReport @complexity(amount: 10)
 }
 
-"""The [transaction-level fee report](https://articles.braintreepayments.com/control-panel/reporting/transaction-level-fee-report) provides a breakdown of fees associated with individual transactions."""
+"""The <com-qordoba-variable-escape>[</com-qordoba-variable-escape>transaction-level fee report<com-qordoba-variable-escape>](https://articles.braintreepayments.com/control-panel/reporting/transaction-level-fee-report)</com-qordoba-variable-escape> provides a breakdown of fees associated with individual transactions."""
 type TransactionLevelFeeReport {
   """The URL where you can access the requested report."""
   url: String
@@ -369,7 +369,7 @@ type VisaCheckoutConfiguration {
 
 """Top-level fields returned from tokenizing a CustomActionsPaymentMethod."""
 type TokenizeCustomActionsPaymentMethodPayload {
-  """An identifier used to reconcile requests and responses."""
+  """An identifier used to reconcile requests and responses. Making an edit here."""
   clientMutationId: String
 
   """A single-use payment method."""
@@ -378,7 +378,7 @@ type TokenizeCustomActionsPaymentMethodPayload {
 
 """Top-level fields returned from a tokenized CVV."""
 type TokenizeCvvPayload {
-  """An identifier used to reconcile requests and responses."""
+  """An identifier used to reconcile requests and responses. Making an edit here."""
   clientMutationId: String
 
   """A single-use payment method."""
@@ -387,7 +387,7 @@ type TokenizeCvvPayload {
 
 """Top-level fields returned from a tokenized credit card."""
 type TokenizeCreditCardPayload {
-  """An identifier used to reconcile requests and responses."""
+  """An identifier used to reconcile requests and responses. Making an edit here."""
   clientMutationId: String
 
   """A one-time-use reference to tokenized sensitive information."""
@@ -402,13 +402,13 @@ type TokenizeCreditCardPayload {
   """A single-use payment method."""
   paymentMethod: PaymentMethod
 
-  """Information about the [customer authentication regulation environment](https://developers.braintreepayments.com/guides/3d-secure/migration/javascript/v3#authentication-insight) that applies to the payment method when processed with the provided merchant account. This can be used to determine whether to perform 3D Secure authentication."""
+  """Information about the <com-qordoba-variable-escape>[</com-qordoba-variable-escape>customer authentication regulation environment<com-qordoba-variable-escape>](https://developers.braintreepayments.com/guides/3d-secure/migration/javascript/v3#authentication-insight)</com-qordoba-variable-escape> that applies to the payment method when processed with the provided merchant account. This can be used to determine whether to perform 3D Secure authentication."""
   authenticationInsight(input: AuthenticationInsightInput!): AuthenticationInsight @complexity(amount: 20)
 }
 
 """Top-level fields returned from a tokenized Network Token."""
 type TokenizeNetworkTokenPayload {
-  """An identifier used to reconcile requests and responses."""
+  """An identifier used to reconcile requests and responses. Making an edit here."""
   clientMutationId: String
 
   """A single-use payment method."""
@@ -417,7 +417,7 @@ type TokenizeNetworkTokenPayload {
 
 """Top-level fields returned from a tokenized Samsung Pay Card."""
 type TokenizeSamsungPayCardPayload {
-  """An identifier used to reconcile requests and responses."""
+  """An identifier used to reconcile requests and responses. Making an edit here."""
   clientMutationId: String
 
   """A one-time-use reference to tokenized sensitive information."""
@@ -429,7 +429,7 @@ type TokenizeSamsungPayCardPayload {
 
 """Top-level fields returned from a tokenized U.S. bank account."""
 type TokenizeUsBankAccountPayload {
-  """An identifier used to reconcile requests and responses."""
+  """An identifier used to reconcile requests and responses. Making an edit here."""
   clientMutationId: String
 
   """A single-use payment method."""
@@ -450,7 +450,7 @@ type CustomActionsPaymentMethodField {
   """The name of this field, e.g. "accountNumber"."""
   name: String
 
-  """The value displayed in the Control Panel or API, e.g. "*****6789"."""
+  """The value displayed in the Control Panel or API, e.g. "<com-qordoba-variable-escape>***</com-qordoba-variable-escape><com-qordoba-variable-escape>**</com-qordoba-variable-escape>6789"."""
   displayValue: String
 }
 
@@ -633,7 +633,7 @@ type PayPalTransactionDetails {
   """Payer's tax ID. Only returned for payments from Brazilian accounts."""
   taxId: String
 
-  """Payer's tax ID type. Only returned for payments from Brazilian accounts. Allowed values BR_CPF or BR_CNPJ."""
+  """Payer's tax ID type. Only returned for payments from Brazilian accounts. Allowed values BR<com-qordoba-variable-escape>_CPF or BR_</com-qordoba-variable-escape>CNPJ."""
   taxIdType: String
 
   """The fee charged by PayPal for the transaction."""
@@ -753,7 +753,7 @@ type UpdateTransactionCustomFieldsPayload {
   """An identifier used to reconcile requests and responses."""
   clientMutationId: String
 
-  """A list of all custom fields on the updated transaction. Custom fields are [defined in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#store-and-pass-back-fields)."""
+  """A list of all custom fields on the updated transaction. Custom fields are <com-qordoba-variable-escape>[</com-qordoba-variable-escape>defined in the Control Panel<com-qordoba-variable-escape>](https://articles.braintreepayments.com/control-panel/custom-fields#store-and-pass-back-fields)</com-qordoba-variable-escape>."""
   customFields: [CustomField!]
 }
 
@@ -783,7 +783,7 @@ type Transaction implements Node {
   """The amount charged in this transaction. For transactions that are partially captured, this amount will be the cummulative amount captured on this transaction."""
   amount: MonetaryAmount
 
-  """Collection of custom field/value pairs. Custom fields are [defined in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#store-and-pass-back-fields)."""
+  """Collection of custom field/value pairs. Custom fields are <com-qordoba-variable-escape>[</com-qordoba-variable-escape>defined in the Control Panel<com-qordoba-variable-escape>](https://articles.braintreepayments.com/control-panel/custom-fields#store-and-pass-back-fields)</com-qordoba-variable-escape>."""
   customFields: [CustomField!]
 
   """The ID of the merchant account that processed this transaction."""
@@ -810,7 +810,7 @@ type Transaction implements Node {
   """The records of all statuses this transaction has passed through, with additional information on why each status occurred. Returned in reverse chronological order, with the most recent event first in the list."""
   statusHistory: [TransactionStatusEvent!]
 
-  """If the transaction request was performed through a shopping cart provider or Braintree partner, this field will have a string identifier for that shopping cart provider or partner. For PayPal transactions, this maps to the PayPal account's bn_code."""
+  """If the transaction request was performed through a shopping cart provider or Braintree partner, this field will have a string identifier for that shopping cart provider or partner. For PayPal transactions, this maps to the PayPal account's bn<com-qordoba-variable-escape>_</com-qordoba-variable-escape>code."""
   channel: String
 
   """How a transaction was created."""
@@ -885,7 +885,7 @@ type TransactionDescriptor {
 
 """Detailed response information from the processor when attempting to authorize a transaction."""
 type TransactionAuthorizationProcessorResponse {
-  """A code based on the response from the processor, indicating the result of attempting to authorize this transaction. See the [list of possible processor response codes for authorization](https://developers.braintreepayments.com/reference/general/processor-responses/settlement-responses)."""
+  """A code based on the response from the processor, indicating the result of attempting to authorize this transaction. See the <com-qordoba-variable-escape>[</com-qordoba-variable-escape>list of possible processor response codes for authorization<com-qordoba-variable-escape>](https://developers.braintreepayments.com/reference/general/processor-responses/settlement-responses)</com-qordoba-variable-escape>."""
   legacyCode: String
 
   """The text explanation of the processor response legacyCode."""
@@ -906,7 +906,7 @@ type TransactionAuthorizationProcessorResponse {
 
 """Detailed response information from the processor when attempting to settle a transaction."""
 type TransactionSettlementProcessorResponse {
-  """A code based on the response from the processor, indicating the result of attempting to settle this transaction. See the [list of possible processor response codes for settlement](https://developers.braintreepayments.com/reference/general/processor-responses/settlement-responses)."""
+  """A code based on the response from the processor, indicating the result of attempting to settle this transaction. See the <com-qordoba-variable-escape>[</com-qordoba-variable-escape>list of possible processor response codes for settlement<com-qordoba-variable-escape>](https://developers.braintreepayments.com/reference/general/processor-responses/settlement-responses)</com-qordoba-variable-escape>."""
   legacyCode: String
 
   """The text explanation of the processor response legacyCode."""
@@ -1029,7 +1029,7 @@ type TransactionLineItem {
   """Product or UPC code for the item."""
   productCode: String
 
-  """Code used to classify items purchased and track the total amount spent across various categories of products and services. Different corporate purchasing organizations may use different standards, but the [United Nations Standard Products and Services Code (UNSPSC)](https://www.unspsc.org/) is frequently used."""
+  """Code used to classify items purchased and track the total amount spent across various categories of products and services. Different corporate purchasing organizations may use different standards, but the <com-qordoba-variable-escape>[</com-qordoba-variable-escape>United Nations Standard Products and Services Code (UNSPSC)<com-qordoba-variable-escape>](https://www.unspsc.org/)</com-qordoba-variable-escape> is frequently used."""
   commodityCode: String
 
   """Item description."""
@@ -1524,7 +1524,7 @@ type Verification implements Node {
   """Date and time at which the verification was created."""
   createdAt: Timestamp
 
-  """The reason the verification was rejected. This will only be set if status is GATEWAY_REJECTED."""
+  """The reason the verification was rejected. This will only be set if status is GATEWAY<com-qordoba-variable-escape>_</com-qordoba-variable-escape>REJECTED."""
   gatewayRejectionReason: GatewayRejectionReason
 
   """Risk data evaluated for this verification."""
@@ -1536,7 +1536,7 @@ type Verification implements Node {
 
 """Detailed response information from the processor."""
 type VerificationProcessorResponse {
-  """The [processor response code](https://developers.braintreepayments.com/reference/general/processor-responses/authorization-responses) indicating the result of attempting the verification."""
+  """The <com-qordoba-variable-escape>[</com-qordoba-variable-escape>processor response code<com-qordoba-variable-escape>](https://developers.braintreepayments.com/reference/general/processor-responses/authorization-responses)</com-qordoba-variable-escape> indicating the result of attempting the verification."""
   legacyCode: String
 
   """The text explanation of the processor response code."""
@@ -1584,7 +1584,7 @@ type Customer implements Node {
   """Date and time at which the customer was created."""
   createdAt: Timestamp
 
-  """Collection of custom field/value pairs. Custom fields are [defined in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#store-and-pass-back-fields)."""
+  """Collection of custom field/value pairs. Custom fields are <com-qordoba-variable-escape>[</com-qordoba-variable-escape>defined in the Control Panel<com-qordoba-variable-escape>](https://articles.braintreepayments.com/control-panel/custom-fields#store-and-pass-back-fields)</com-qordoba-variable-escape>."""
   customFields: [CustomField!]
 
   """Customer's default payment method."""
@@ -1627,7 +1627,7 @@ type PaymentMethodConnectionEdge {
   node: PaymentMethod
 }
 
-"""Information about the [customer authentication regulation environment](https://developers.braintreepayments.com/guides/3d-secure/migration/javascript/v3#authentication-insight) that applies to the payment method when processed with the provided merchant account."""
+"""Information about the <com-qordoba-variable-escape>[</com-qordoba-variable-escape>customer authentication regulation environment<com-qordoba-variable-escape>](https://developers.braintreepayments.com/guides/3d-secure/migration/javascript/v3#authentication-insight)</com-qordoba-variable-escape> that applies to the payment method when processed with the provided merchant account."""
 type AuthenticationInsight {
   """The merchant account used to determine authentication insight."""
   merchantAccountId: String
@@ -1692,7 +1692,7 @@ type ThreeDSecureAuthentication {
   """Indicates the current status of the 3D Secure authentication from the 3D Secure server for 3D Secure 2.0 authentications."""
   transactionStatus: ThreeDSecureAuthenticationStatusIndicator
 
-  """Indicates the reason for the transaction status. This will be null if status is `SUCCESSFUL_AUTHENTICATION`."""
+  """Indicates the reason for the transaction status. This will be null if status is `SUCCESSFUL<com-qordoba-variable-escape>_</com-qordoba-variable-escape>AUTHENTICATION`."""
   transactionStatusReason: String
 }
 
@@ -1729,7 +1729,7 @@ type ThreeDSecureLookupData {
   termUrl: String
 }
 
-"""[A case raised by a customer to either request information about or to challenge a charge](https://articles.braintreepayments.com/risk-and-security/chargebacks-retrievals/overview). These are initiated via a customer's payment provider, such as their bank, and require a merchant to provide evidence or further information."""
+"""<com-qordoba-variable-escape>[</com-qordoba-variable-escape>A case raised by a customer to either request information about or to challenge a charge<com-qordoba-variable-escape>](https://articles.braintreepayments.com/risk-and-security/chargebacks-retrievals/overview)</com-qordoba-variable-escape>. These are initiated via a customer's payment provider, such as their bank, and require a merchant to provide evidence or further information."""
 type Dispute implements Node {
   """Unique identifier."""
   id: ID!
