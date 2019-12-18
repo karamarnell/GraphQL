@@ -7,7 +7,7 @@ input TokenizeCreditCardInput {
   """Input fields for a credit card object."""
   creditCard: CreditCardInput!
 
-  """Credit card tokenization options."""
+  """Credit card tokenization options. EDITSSSS"""
   options: TokenizeCreditCardOptionsInput
 }
 
