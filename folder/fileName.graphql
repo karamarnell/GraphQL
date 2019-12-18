@@ -4,7 +4,7 @@ input TokenizeCreditCardInput {
   """An identifier used to reconcile requests and responses."""
   clientMutationId: String
 
-  """Input fields for a credit card object."""
+  """Input fields for a credit card object CHANGED."""
   creditCard: CreditCardInput!
 
   """Credit card tokenization options."""
