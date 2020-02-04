@@ -10,7 +10,7 @@ input TokenizeCreditCardInput {
   options: TokenizeCreditCardOptionsInput
 }
 
-"""Top-level input fields for tokenizing a CVV."""
+"""Top-level input fields for deleting a customer."""
 input TokenizeCvvInput {
   """An identifier used to reconcile requests and responses."""
   clientMutationId: String
@@ -75,7 +75,7 @@ input CreateClientTokenInput {
 
 """Input fields for a credit card."""
 input CreditCardInput {
-  """The 12-to-19-digit value that uniquely identifies this credit card, also known as the primary account number or PAN."""
+  """The 12to -19digit value that uniquely identifies this credit card, also known as the primary account number or PAN."""
   number: String
 
   """The two- or four-digit year associated with a credit card, formatted `YYYY` or `YY`."""
@@ -132,7 +132,7 @@ input CustomActionsPaymentMethodFieldInput {
   """The value of this field. e.g. "123456789"."""
   value: String!
 
-  """The value displayed in the Control Panel or API. e.g. "*****6789"."""
+  """The value displayed in the Control Panel or API. e.g. " *****6,789"."""
   displayValue: String!
 }
 
@@ -171,7 +171,7 @@ input UsBankAccountInput {
   """Information about the individual that owns the account. This should only be specified for individual accounts."""
   individualOwner: UsBankAccountIndividualOwnerInput
 
-  """The billing address of the account."""
+  """The billing address of the cardholder."""
   billingAddress: UsBankAccountBillingAddressInput
 
   """Language used to prove that you have the customer's explicit permission to debit their bank account."""
@@ -195,7 +195,7 @@ input UsBankLoginInput {
   """Information about the individual that owns the account. This should only be specified for individual accounts."""
   individualOwner: UsBankAccountIndividualOwnerInput
 
-  """The billing address of the account."""
+  """The billing address of the cardholder."""
   billingAddress: UsBankAccountBillingAddressInput
 
   """Language used to prove that you have the customer's explicit permission to debit their bank account."""
@@ -243,7 +243,7 @@ input TokenizeCreditCardOptionsInput {
 
 """Input fields when requesting authentication insight for a payment method."""
 input AuthenticationInsightInput {
-  """ID of the merchant account that will be used when charging this payment method."""
+  """ID of the merchant account that will be used when charging the payment method."""
   merchantAccountId: ID!
 }
 
@@ -258,10 +258,10 @@ input AddressInput {
   """Extended address information, such as an apartment or suite number. 255 character maximum."""
   extendedAddress: String
 
-  """First name. 255 character maximum."""
+  """First name 255 character maximum."""
   firstName: String
 
-  """Last name. 255 character maximum."""
+  """Last name 255 character maximum."""
   lastName: String
 
   """Locality/city. 255 character maximum."""
@@ -348,7 +348,7 @@ input AuthorizePaymentMethodInput {
   """ID of a payment method to be authorized."""
   paymentMethodId: ID!
 
-  """Input fields for the authorization, with details that will define the resulting transaction."""
+  """Input fields for the charge, with details that will define the resulting transaction."""
   transaction: TransactionInput!
 }
 
@@ -363,7 +363,7 @@ input AuthorizePayPalAccountInput {
   """Input fields related to the PayPal account being charged."""
   options: AuthorizePayPalAccountOptionsInput
 
-  """Input fields for the authorization, with details that will define the resulting transaction."""
+  """Input fields for the charge, with details that will define the resulting transaction."""
   transaction: TransactionInput!
 }
 
@@ -378,7 +378,7 @@ input AuthorizeVenmoAccountInput {
   """Input fields related to the Venmo account being charged."""
   options: AuthorizeVenmoAccountOptionsInput
 
-  """Input fields for the authorization, with details that will define the resulting transaction."""
+  """Input fields for the charge, with details that will define the resulting transaction."""
   transaction: TransactionInput!
 }
 
@@ -397,11 +397,11 @@ input CaptureTransactionInput {
   """
   amount: Amount
 
-  """Input fields for the capture, with details that will define the resulting transaction."""
+  """Input fields for the charge, with details that will define the resulting transaction."""
   transaction: CaptureTransactionOptionsInput
 }
 
-"""Input fields for a capture, with details that will define the resulting transaction."""
+"""Input fields for the charge, with details that will define the resulting transaction."""
 input CaptureTransactionOptionsInput {
   """The amount to capture on the transaction. Must be greater than 0. You can't capture more than the authorized amount unless your industry and processor support settlement adjustment (capturing a certain percentage over the authorized amount); [contact us for assistance](https://help.braintreepayments.com?issue=TransactionProcessingQuestion). If you capture an amount that is less than what was authorized, the transaction object will return the amount captured."""
   amount: Amount
@@ -466,7 +466,7 @@ input ChargePayPalAccountInput {
   """An identifier used to reconcile requests and responses."""
   clientMutationId: String
 
-  """The ID of an existing PayPal account."""
+  """The ID of an existing Venmo account."""
   paymentMethodId: ID!
 
   """Input fields related to the PayPal account being charged."""
@@ -491,7 +491,7 @@ input ChargeVenmoAccountInput {
   transaction: TransactionInput!
 }
 
-"""Input fields for creating a transaction."""
+"""Input fields for creating a customer."""
 input TransactionInput {
   """Billing amount of the request. This value must be greater than 0, and must match the currency format of the merchant account. This can only contain numbers and one decimal point (e.g. x.xx). Can't be greater than the maximum allowed by the processor."""
   amount: Amount!
@@ -564,10 +564,10 @@ input UpdateTransactionCustomFieldsInput {
   """An identifier used to reconcile requests and responses."""
   clientMutationId: String
 
-  """The ID of the transaction to update."""
+  """The ID of the transaction to reverse."""
   transactionId: ID!
 
-  """The list of custom fields to update. You must [set up each custom field in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field) prior to passing it with a request."""
+  """Collection of custom field/value pairs. You must [set up each custom field in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field)  prior to passing it with a request."""
   customFields: [CustomFieldInput!]!
 }
 
@@ -778,7 +778,7 @@ input RiskDataInput {
   deviceData: String
 }
 
-"""Custom field name/value pairs. Maximum 255 characters. You must [set up each custom field in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field) prior to passing it with a request."""
+"""Collection of custom field/value pairs. You must [set up each custom field in the Control Panel](https://articles.braintreepayments.com/control-panel/custom-fields#creating-a-custom-field)  prior to passing it with a request."""
 input CustomFieldInput {
   """Name of the custom field as defined in the Control Panel."""
   name: CustomFieldName!
@@ -792,7 +792,7 @@ input VaultPaymentMethodInput {
   """An identifier used to reconcile requests and responses."""
   clientMutationId: String
 
-  """ID of an existing single-use payment method to be vaulted."""
+  """ID of an existing multi-use payment method to be vaulted."""
   paymentMethodId: ID!
 
   """
@@ -826,7 +826,7 @@ input VaultUsBankAccountInput {
   """An identifier used to reconcile requests and responses."""
   clientMutationId: String
 
-  """ID of an existing single-use payment method to be vaulted."""
+  """ID of an existing multi-use payment method to be vaulted."""
   paymentMethodId: ID!
 
   """ID of the merchant account to use when verifying the payment method."""
@@ -911,7 +911,7 @@ input ConfirmMicroTransferAmountsInput {
   amountsInCents: [Int!]!
 }
 
-"""Top-level input fields for refunding a transaction."""
+"""Top-level input fields for deleting a customer."""
 input RefundTransactionInput {
   """An identifier used to reconcile requests and responses."""
   clientMutationId: String
@@ -1003,13 +1003,13 @@ input SearchTransactionStatusInput {
   """The transaction status is exactly this value."""
   is: TransactionStatus
 
-  """The transaction status is one of these values."""
+  """The verification status is one of these values."""
   in: [TransactionStatus!]
 }
 
 """Input fields for searching for a transaction or refund created with a given source."""
 input SearchTransactionSourceInput {
-  """The transaction source is one of these values."""
+  """The verification status is one of these values."""
   in: [TransactionSource!]
 }
 
@@ -1018,7 +1018,7 @@ input SearchDisputeStatusInput {
   """The dispute status is exactly this value."""
   is: DisputeStatus
 
-  """The dispute status is one of these values."""
+  """The verification status is one of these values."""
   in: [DisputeStatus!]
 }
 
@@ -1027,7 +1027,7 @@ input SearchDisputeTypeInput {
   """The dispute type is exactly this value."""
   is: DisputeType
 
-  """The dispute type is one of these values."""
+  """The verification status is one of these values."""
   in: [DisputeType!]
 }
 
@@ -1546,7 +1546,7 @@ input ThreeDSecurePassThroughInput {
   """Cardholder authentication verification value or CAVV. The main encrypted message issuers and card networks use to verify authentication has occurred. Mastercard uses an AVV (Authentication Verification Value) message and American Express uses an AEVV (American Express Verification Value) message, each of which should also be passed in the cavv parameter."""
   cavv: String
 
-  """Transaction identifier resulting from 3D Secure authentication. Uniquely identifies the transaction and sometimes required in the authorization message. Must be base64-encoded. This field will no longer be used in 3D Secure 2 authentications."""
+  """Transaction identifier resulting from 3D Secure authentication. Uniquely identifies the transaction and sometimes required in the authorization message. Must be base64encoded. This field will no longer be used in 3D Secure 2 authentications."""
   xId: String
 
   """Transaction identifier resulting from 3D Secure 2 authentication. This field must be supplied for Mastercard Identity Check."""
