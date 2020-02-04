@@ -1,0 +1,42 @@
+"""An [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code. Braintree only accepts [specific alpha-2 values](https://developers.braintreepayments.com/reference/general/countries#list-of-countries)."""
+scalar CountryCodeAlpha2
+"""An [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code. Braintree only accepts [specific alpha-3 values](https://developers.braintreepayments.com/reference/general/countries#list-of-countries)."""
+scalar CountryCodeAlpha3
+"""An [ISO 4217 alpha](https://en.wikipedia.org/wiki/ISO_4217) currency code. Braintree only accepts [specific alpha values](https://developers.braintreepayments.com/reference/general/currencies)."""
+scalar CurrencyCodeAlpha
+"""A four-digit year."""
+scalar Year
+"""A two-digit, zero-padded month."""
+scalar Month
+"""A four-digit string."""
+scalar CreditCardLast4
+"""A card brand-specific two-digit string describing the mode of the transaction."""
+scalar ECommerceIndicator
+"""A number that passes Luhn validation."""
+scalar CreditCardNumber
+"""A monetary amount, either a whole number or a number with exactly two or three decimal places."""
+scalar Amount
+"""An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Times) timestamp with microsecond precision, in UTC."""
+scalar Timestamp
+"""A date in the format YYYY-MM-DD."""
+scalar Date
+"""An account number containing 4-17 digits."""
+scalar UsBankAccountNumber
+"""A routing number containing 8 or 9 digits."""
+scalar UsBankRoutingNumber
+"""A US ZIP code. Supports DDDDD and DDDDD-DDDD formats."""
+scalar UsZipCode
+"""A string representing a custom field value. Contains letters, numbers, and underscores."""
+scalar CustomFieldName
+"""A 3D Secure authentication version. Must be composed of digits separated by periods (e.g. '1.0.2')."""
+scalar ThreeDSecureVersion
+"""A raw 3D Secure PARes or VARes response code (e.g. 'Y')."""
+scalar ThreeDSecureStatusCode
+"""A 3D Secure CAVV algorithm. Possible Values: 2 - CVV with ATN, 3 - Mastercard SPA algorithm."""
+scalar ThreeDSecureCavvAlgorithm
+"""Date format for ThreeDSecureAuthenticationTransactionInformation values. Format: YYYYMMDD."""
+scalar ThreeDSecureAuthenticationTransactionInformationDate
+"""Amount in major units. Example: $123.45 USD = 12345."""
+scalar ThreeDSecureAuthenticationTransactionInformationAmountMajorUnits
+"""Date format for ThreeDSecureAuthenticationTransactionInformation values with timestamp. Format: YYYYMMDDHHMMSS."""
+scalar ThreeDSecureAuthenticationTransactionInformationDateTime
